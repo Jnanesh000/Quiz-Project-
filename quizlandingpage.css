@@ -1,0 +1,247 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background for the body */
+  color: #eaeaea; /* Light text color for better readability */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(
+    31,
+    31,
+    31,
+    0.8
+  ); /* Dark background with transparency for navbar */
+  padding: 20px 30px;
+  color: #eaeaea; /* Light text color for navbar */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-50px); /* Start off-screen */
+  animation: slideIn 1s forwards; /* Slide in animation */
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px; /* Space between logo and text */
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #eaeaea; /* Light color for the QuizL text */
+}
+
+.nav-buttons {
+  display: flex; /* Ensure buttons are side by side */
+  align-items: center;
+}
+
+.navbar .nav-buttons a {
+  text-decoration: none;
+  color: #eaeaea; /* Light text color for buttons */
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue button color */
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s ease; /* Add transform for button scale */
+}
+
+.navbar .nav-buttons a:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Main Content (Welcome Section) with Background Image */
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-image: url("https://t4.ftcdn.net/jpg/03/45/88/07/360_F_345880772_zIT2mkdCzTthplO7xqaGGrMspN0jw0ll.jpg"); /* Background Image */
+  background-size: cover; /* Ensure the image covers the whole page */
+  background-position: center center; /* Center the background image */
+  background-attachment: fixed; /* Fix the background so it doesn't scroll with the content */
+  color: #ffffff; /* White text color for contrast */
+  opacity: 0; /* Initially hidden */
+  animation: fadeInUp 1s 0.5s forwards; /* Fade in and slide up animation */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-section h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease-out; /* Animation for the heading */
+}
+
+/* Smooth scrolling effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Additional styling */
+body,
+.navbar,
+.welcome-section {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Animation for navbar links */
+.navbar .nav-buttons a {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(10px); /* Start with small downward offset */
+  animation: fadeInLink 1s ease-out forwards 1s; /* Fade-in and move-up animation with delay */
+}
+
+@keyframes fadeInLink {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries for Responsiveness */
+
+/* For Tablets (width between 600px to 900px) */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-buttons a {
+    padding: 8px 16px;
+    margin-left: 10px;
+  }
+
+  .welcome-section h1 {
+    font-size: 2.5rem; /* Smaller font size for the heading */
+  }
+
+  .welcome-section {
+    height: 80vh; /* Adjust the height for smaller screens */
+    background-attachment: scroll; /* Disable background attachment fixed */
+  }
+
+  .logo {
+    height: 30px; /* Smaller logo for smaller screens */
+  }
+}
+
+/* For Mobile Devices (width up to 600px) */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo-container {
+    margin-right: 10px; /* Space between logo and buttons */
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .nav-buttons {
+    display: flex; /* Keep buttons side by side */
+    align-items: center;
+    justify-content: center; /* Center the buttons */
+    margin-top: 10px;
+  }
+
+  .nav-buttons a {
+    margin-left: 10px;
+    padding: 8px 16px;
+  }
+
+  .welcome-section {
+    height: 70vh; /* Adjust the height for smaller screens */
+  }
+
+  .welcome-section h1 {
+    font-size: 1.8rem; /* Smaller font size for the heading */
+    padding: 10px;
+  }
+
+  .welcome-section {
+    background-attachment: scroll; /* Disable fixed background attachment for mobile */
+  }
+
+  .navbar .nav-buttons a {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+}
+
+/* For Very Small Screens (Portrait phones, width under 400px) */
+@media (max-width: 400px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo-container {
+    margin-right: 10px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-buttons a {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+  }
+
+  .welcome-section h1 {
+    font-size: 1.6rem; /* Even smaller font size for very small screens */
+  }
+}

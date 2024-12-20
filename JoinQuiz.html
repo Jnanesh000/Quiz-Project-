@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="stylesheet" href="JoinQuiz.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark text-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <img src="https://i.pinimg.com/736x/a4/6a/19/a46a19001670867cadc38d36c4c4a6d8.jpg" alt="QuizL Logo"
+                    class="logo">
+                <span class="logo-text">QuizL</span>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex flex-column text-center justify-content-center align-items-center m-3 p-3">
+                <h1 class="main-heading fade-in">Join QuizL now - It's free!</h1>
+            </div>
+            <div>
+                <div class="col-12 d-flex flex-column align-items-center">
+                    <p class="details-para">Email or phone number</p>
+                    <input class="details-box fade-in" type="text" name="" id="input">
+                    <p class="error" id="error"></p>
+                    <p class="details-para pt-4">Password (6+ characters)</p>
+                    <div class="password-container">
+                        <input class="details-box fade-in space" type="password" id="password"
+                            placeholder="Enter your password">
+                        <p class="error" id="error_password"></p>
+                        <button type="button" id="togglePassword" class="show-password">Show</button>
+                    </div>
+
+                    <p> <input class="mt-4" type="checkbox"><span>Remember me</span></p>
+                </div>
+                <div class="mt-3 d-flex text-center justify-content-center">
+                    <p class="policy-para fade-in">
+                        By clicking Continue to join or sign in, you agree to QuizL's
+                        <span class="policy">User Agreement, Privacy Policy,</span> and
+                        <span class="policy">Cookie policy.</span>
+                    </p>
+                </div>
+                <div class="d-flex flex-column text-center align-items-center justify-content-center">
+                    <button class="googlebtn fade-in" id="submitBtn">
+                        Continue
+                    </button>
+                    <span class="inline-container">
+                        <hr class="line">
+
+                        <p class="mt-4 mb-4 fade-in">
+                            <span class="policy-heading">Already on QuizL ?</span>
+                            <span class="policy-heading Joinnow"><a class="noline"
+                                    href="SigninQuiz.html">Signin</a></span>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("togglePassword").onclick = function () {
+            var passwordField = document.getElementById("password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.textContent = "Hide";
+            } else {
+                passwordField.type = "password";
+                this.textContent = "Show";
+            }
+        };
+
+        let JoinQuiz = {};
+        let inputEl = document.getElementById("input");
+        let passwordEl = document.getElementById("password");
+        let reg_input = /^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|(?:\+?\d{1,4}[.\s-]?)?(?:\(?\d{1,4}\)?[\s.-]?)?\d{1,4}[\s.-]?\d{1,4}[\s.-]?\d{1,4})$/;
+        let reg_password = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        let error_emailEl = document.getElementById("error");
+        let error_passwordEl = document.getElementById("error_password");
+
+        function AppendObjectToLocalStorage(JoinQuiz) {
+            let existingData = localStorage.getItem("JoinQuiz");
+            if (existingData) {
+                existingData = JSON.parse(existingData);
+                existingData.push(JoinQuiz);
+                localStorage.setItem("JoinQuiz", JSON.stringify(existingData));
+            } else {
+                localStorage.setItem("JoinQuiz", JSON.stringify([JoinQuiz]));
+            }
+        }
+
+        document.getElementById("submitBtn").addEventListener("click", submit);
+
+        function submit() {
+            let valid = true;
+            if (reg_input.test(inputEl.value)) {
+                JoinQuiz["email"] = inputEl.value;
+                error_emailEl.textContent = "";
+                inputEl.classList.remove("border");
+            } else {
+                inputEl.classList.add("border-red");
+                error_emailEl.textContent = "*Enter a valid email or phone number";
+                valid = false;
+            }
+
+            if (reg_password.test(passwordEl.value)) {
+                JoinQuiz["password"] = passwordEl.value;
+                error_passwordEl.textContent = "";
+                passwordEl.classList.remove("border-red");
+            } else {
+                passwordEl.classList.add("border-red");
+                error_passwordEl.textContent = "*Enter a valid password";
+                valid = false;
+            }
+
+            if (valid) {
+                AppendObjectToLocalStorage(JoinQuiz);
+                inputEl.value = '';
+                passwordEl.value = '';
+                window.location = "Quiz.html";
+                console.log("Data saved:", JoinQuiz);
+            } else {
+                console.log("Invalid data, please fix the errors.");
+            }
+        }
+    </script>
+</body>
+
+</html>

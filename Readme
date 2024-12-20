@@ -1,0 +1,28 @@
+Overview
+This is a simple web-based quiz application designed to test knowledge on various web development topics like HTML, CSS, JavaScript, and SQL. The quiz allows users to answer questions within a time limit, track their scores, and view high scores.
+
+Features
+Timed Quiz: Users have 60 seconds to answer all questions.
+Randomized Questions and Options: The questions and answer choices are shuffled each time the quiz starts.
+Navigation: Users can move between questions using "Previous" and "Next" buttons, and also jump to specific questions.
+Score Display: At the end of the quiz, the user's score is displayed along with a list of high scores.
+Answer Review: Users can view correct and incorrect answers after completing the quiz.
+
+How to Use
+Start the Quiz: Enter your name and click the "Start Quiz" button.
+Answer Questions: Select the correct answer for each question. Once an answer is selected, you can move to the next question.
+Submit the Quiz: When all questions are answered or time runs out, submit the quiz to see your score.
+View High Scores: After submitting, your score will be saved in the high scores list, and you can see the top 5 scores.
+Technologies Used
+HTML: Structure of the quiz page and user interface.
+CSS: Styling for the quiz layout and user experience.
+JavaScript: Logic for handling the quiz functionality, timer, and high scores.
+
+How to Run
+Clone or download this repository to your local machine.
+Open the index.html file in a web browser to start the quiz.
+The quiz will automatically start when you press the "Start Quiz" button.
+
+Credits
+This quiz is created by [Your Name].
+Icons used in the high score section are from Bootstarp.

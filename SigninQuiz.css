@@ -1,0 +1,220 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212; /* Dark background */
+  color: #eaeaea; /* Light text */
+  font-family: Arial, sans-serif;
+  animation: fadeIn 1s ease-out;
+}
+
+a {
+  text-decoration: none;
+  color: #0a66c2; /* Link color */
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #444;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1f1f1f; /* Dark background for the navbar */
+  padding: 15px 30px;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar .navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar .nav-link {
+  color: #fff;
+  padding: 10px 15px;
+}
+
+.navbar .nav-link:hover {
+  background-color: #444;
+}
+
+/* Form and Input Styling */
+.main-heading {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.main-para {
+  font-size: 14px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.details-box {
+  padding: 8px 65px 8px 65px;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.details-box:focus {
+  border-color: #0a66c2;
+}
+
+.password-container {
+  position: relative;
+  margin-top: 15px;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+.show-text {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.show-text:hover {
+  text-decoration: underline;
+}
+
+.policy-heading {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInUp 1.8s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.googlebtn {
+  color: white;
+  background-color: #0a66c2;
+  border: none;
+  width: 330px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInUp 2s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.googlebtn:hover {
+  background-color: #005b99;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.inline-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  margin: 0 10px;
+  flex-grow: 1;
+}
+
+.policy-para {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.noline {
+  text-decoration: none;
+}
+
+.border-red {
+  border: 2px solid red !important;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .details-box {
+    padding: 10px 20px;
+  }
+
+  .googlebtn {
+    width: 100%;
+    padding: 12px;
+  }
+}
